@@ -7,6 +7,7 @@ import "../Cards.css";
 import "../Destination.css";
 
 const Services = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   return (
     <>
       <div className="cards">
@@ -68,7 +69,10 @@ const Services = () => {
             </ul>
           </div>
           <br />
-          <Button buttonStyle="btn--clear" path="/register-trip">
+          <Button
+            buttonStyle="btn--clear"
+            path="/register-trip"
+            onClick={() => scrollToTop()}>
             Book Now!
           </Button>
         </div>

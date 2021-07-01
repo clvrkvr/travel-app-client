@@ -9,6 +9,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [birthday, setBirthday] = useState("");
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const registerUser = async () => {
     fetch(`/api/tours/users/add-user`, {
       method: "post",
@@ -123,8 +124,11 @@ const SignUp = () => {
             <Button
               buttonStyle="btn--clear"
               type="submit"
-              onCLick={() => registerUser()}
-              path="/activity-registered"
+              onClick={() => {
+                registerUser();
+                scrollToTop();
+              }}
+              path="/sign-up"
             >
               Sign Up
             </Button>

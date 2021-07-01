@@ -11,6 +11,7 @@ const TripForm = () => {
   const [phone, setPhone] = useState("");
   const [destination, setDestination] = useState("");
   const [traveller, setTraveller] = useState("");
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const reserveTrip = async () => {
     fetch(`/api/tours/trips/add-trip`, {
       method: "post",
@@ -161,7 +162,10 @@ const TripForm = () => {
             <Button
               buttonStyle="btn--clear"
               type="submit"
-              onCLick={() => reserveTrip()}
+              onClick={() => {
+                reserveTrip();
+                scrollToTop();
+              }}
               path="/activity-booked"
             >
               Book Trip

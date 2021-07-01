@@ -6,6 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -25,7 +26,10 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" onClick={() => setClick(false)}>
+          <Link to="/" onClick={() => {
+            setClick(false);
+            scrollToTop();
+            }}>
             <img src="./images/logo.png" alt="Logo" className="image" />
           </Link>
           <div className="menu-icon" onClick={() => setClick(!click)}>
@@ -36,7 +40,10 @@ const Navbar = () => {
               <Link
                 to="/"
                 className="nav-links"
-                onClick={() => setClick(false)}
+                onClick={() => {
+                  setClick(false);
+                  scrollToTop();
+                }}
               >
                 Home
               </Link>
@@ -45,7 +52,10 @@ const Navbar = () => {
               <Link
                 to="/services"
                 className="nav-links"
-                onClick={() => setClick(false)}
+                onClick={() => {
+                  setClick(false);
+                  scrollToTop();
+                }}
               >
                 Services
               </Link>
@@ -54,7 +64,10 @@ const Navbar = () => {
               <Link
                 to="/about"
                 className="nav-links"
-                onClick={() => setClick(false)}
+                onClick={() => {
+                  setClick(false);
+                  scrollToTop();
+                }}
               >
                 About
               </Link>
@@ -63,14 +76,20 @@ const Navbar = () => {
               <Link
                 to="/sign-up"
                 className="nav-links-mobile"
-                onClick={() => setClick(false)}
+                onClick={() => {
+                  setClick(false);
+                  scrollToTop();
+                }}
               >
                 Sign Up
               </Link>
             </li>
           </ul>
           {button && (
-            <Button buttonStyle="btn--outline" path="/sign-up">
+            <Button
+              buttonStyle="btn--outline"
+              path="/sign-up"
+              onClick={() => scrollToTop()}>
               SIGN UP
             </Button>
           )}

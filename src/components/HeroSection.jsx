@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import "./HeroSection.css";
 
 const HeroSection = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   return (
     <div className="hero-container">
       <video src="videos/milky-way-time-lapse.mp4" autoPlay loop muted />
@@ -15,6 +16,7 @@ const HeroSection = () => {
           buttonStyle="btn--outline"
           buttonSize="btn--large"
           path="/services"
+          onClick={() => scrollToTop()}
         >
           CHOOSE YOUR TRIP
         </Button>

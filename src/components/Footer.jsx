@@ -5,6 +5,7 @@ import "./Footer.css";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const subscribe = async () => {
     fetch(`/api/tours/subscriptions/subscribe`, {
       method: "post",
@@ -37,7 +38,10 @@ const Footer = () => {
             />
             <Button
               buttonStyle="btn--outline"
-              onCLick={() => subscribe()}
+              onClick={() => {
+                subscribe();
+                scrollToTop();
+              }}
               path="/activity-subscribed"
             >
               Subscribe
